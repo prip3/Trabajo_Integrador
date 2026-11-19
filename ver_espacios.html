@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacios cargados - Reserva de Espacios</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="cabecera">
+        <h1>📅 Reserva de Espacios</h1>
+        <p>Escuela Experimental ProA</p>
+    </header>
+
+    <!-- Menú de navegación entre páginas -->
+    <nav class="menu" aria-label="Páginas de la aplicación">
+        <a href="index.html">Inicio</a>
+        <a href="crear_reservas.html">Nueva reserva</a>
+        <a href="ver_reservas.html">Ver reservas</a>
+        <a href="crear_espacios.html">Nuevo espacio</a>
+        <a href="ver_espacios.html" aria-current="page" class="activo">Ver espacios</a>
+        <a href="crear_usuarios.html">Nuevo usuario</a>
+        <a href="ver_usuarios.html">Ver usuarios</a>
+        <a href="ver_resumen.html">Resumen</a>
+    </nav>
+
+    <!-- Mensajes de éxito/error (los leen los lectores de pantalla) -->
+    <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+
+    <main>
+        <section class="vista">
+            <h2>Espacios cargados</h2>
+            <div class="tabla-wrap">
+                <table>
+                    <thead><tr><th>Nombre</th><th>Tipo</th><th>Capacidad</th><th>Acción</th></tr></thead>
+                    <tbody id="tabla-espacios"></tbody>
+                </table>
+            </div>
+            <p id="vacio-espacios" class="vacio" hidden>Todavía no cargaste espacios.</p>
+            <p><a href="crear_espacios.html">+ Agregar un espacio</a></p>
+        </section>
+    </main>
+
+    <footer>Programación IV · Escuela Experimental ProA</footer>
+
+    <!-- Primero las clases (modelos), después la interfaz que las usa -->
+    <script src="js/modelos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

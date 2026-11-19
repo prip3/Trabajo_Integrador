@@ -1,0 +1,100 @@
+/* ==========================================================
+   style.css · Estilos de la app (diseño responsivo, mobile first)
+   ========================================================== */
+:root {
+    --primario: #3f51b5;
+    --primario-osc: #303f9f;
+    --fondo: #f3f5fb;
+    --tarjeta: #ffffff;
+    --texto: #263238;
+    --borde: #cfd8dc;
+    --ok: #2e7d32;
+    --error: #c62828;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--fondo); color: var(--texto); line-height: 1.4;
+}
+.cabecera { background: linear-gradient(135deg, var(--primario), #5c6bc0); color: #fff; text-align: center; padding: 1.2rem 1rem; }
+.cabecera h1 { margin: 0; font-size: 1.6rem; }
+.cabecera p { margin: .3rem 0 0; opacity: .9; }
+
+/* Menú */
+.menu { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; padding: .8rem; background: #fff; border-bottom: 1px solid var(--borde); }
+.menu a { background: #e8eaf6; color: var(--primario-osc); text-decoration: none; padding: .5rem .9rem; border-radius: 8px; font-weight: 600; font-size: .95rem; }
+.menu a:hover { background: #c5cae9; }
+.menu a.activo { background: var(--primario); color: #fff; }
+a { color: var(--primario-osc); }
+a:focus-visible { outline: 3px solid #9fa8da; outline-offset: 2px; }
+
+/* Tarjetas de acceso de la página de inicio */
+.accesos { display: grid; grid-template-columns: 1fr; gap: .8rem; }
+.acceso { display: flex; flex-direction: column; gap: .2rem; background: #e8eaf6; border-radius: 10px; padding: 1rem; text-decoration: none; color: var(--texto); border: 2px solid transparent; }
+.acceso:hover { border-color: var(--primario); }
+.acceso strong { color: var(--primario-osc); font-size: 1.1rem; }
+
+main { max-width: 1000px; margin: 0 auto; padding: 1rem; }
+.vista { background: var(--tarjeta); border-radius: 12px; padding: 1rem 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+h2 { color: var(--primario-osc); margin-top: .5rem; }
+h3 { margin-bottom: .5rem; }
+[hidden] { display: none !important; }
+
+/* Formularios */
+.grid-form, .filtros { display: grid; grid-template-columns: 1fr; gap: .8rem; align-items: end; margin-bottom: 1rem; }
+.campo { display: flex; flex-direction: column; }
+label { font-weight: 600; font-size: .9rem; margin-bottom: .25rem; color: #455a64; }
+input, select { padding: .6rem; border: 1px solid #90a4ae; border-radius: 8px; font-size: 1rem; background: #fff; width: 100%; }
+input:focus, select:focus, button:focus-visible { outline: 3px solid #9fa8da; outline-offset: 1px; }
+
+/* Botones */
+button { background: var(--primario); color: #fff; border: none; padding: .65rem 1.1rem; border-radius: 8px; font-size: 1rem; cursor: pointer; }
+button:hover:not(:disabled) { background: var(--primario-osc); }
+button:disabled { background: #b0bec5; cursor: not-allowed; }
+button.secundario { background: #e8eaf6; color: var(--primario-osc); }
+button.peligro { background: var(--error); }
+button.peligro:hover { background: #b71c1c; }
+button.chico { padding: .4rem .8rem; font-size: .9rem; }
+
+/* Mensajes */
+.mensaje { min-height: 1.5rem; max-width: 1000px; margin: .6rem auto 0; padding: 0 1rem; font-weight: 600; }
+.mensaje.ok { color: var(--ok); }
+.mensaje.error { color: var(--error); }
+.vacio { color: #607d8b; font-style: italic; }
+
+/* Tablas */
+.tabla-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th { background: var(--primario); color: #fff; text-align: left; }
+th, td { padding: .6rem .7rem; border-bottom: 1px solid #e0e0e0; }
+tbody tr:hover { background: #f5f7ff; }
+
+/* Resumen */
+.tarjetas { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+.tarjeta { background: #e8eaf6; border-radius: 10px; padding: 1rem; display: flex; flex-direction: column; text-align: center; }
+.tarjeta strong { font-size: 1.5rem; color: var(--primario-osc); overflow-wrap: anywhere; }
+.barra-fila { margin: .5rem 0; }
+.barra-pista { background: #e0e0e0; border-radius: 6px; height: 14px; overflow: hidden; }
+.barra { background: var(--primario); height: 100%; }
+.acciones { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.2rem; }
+footer { text-align: center; color: #78909c; padding: 1.5rem; font-size: .85rem; }
+
+/* Tablet y escritorio: formularios en varias columnas */
+@media (min-width: 700px) {
+    .accesos { grid-template-columns: repeat(2, 1fr); }
+    .grid-form { grid-template-columns: repeat(2, 1fr); }
+    .filtros { grid-template-columns: 1fr 1fr auto; }
+    .campo.ancho { grid-column: 1 / -1; }
+    .tarjetas { grid-template-columns: repeat(4, 1fr); }
+    .barra-fila { display: grid; grid-template-columns: 220px 1fr; gap: .8rem; align-items: center; }
+}
+@media (min-width: 1000px) { .accesos { grid-template-columns: repeat(3, 1fr); } .grid-form { grid-template-columns: repeat(4, 1fr); } .campo.ancho { grid-column: span 3; } }
+
+/* Celulares: cada fila de la tabla se convierte en una tarjeta */
+@media (max-width: 699px) {
+    thead { display: none; }
+    table, tbody, tr, td { display: block; width: 100%; }
+    tr { border: 1px solid var(--borde); border-radius: 10px; margin-bottom: .8rem; padding: .3rem; }
+    td { display: flex; justify-content: space-between; gap: 1rem; border: none; text-align: right; }
+    td::before { content: attr(data-label); font-weight: 700; color: var(--primario-osc); text-align: left; }
+}

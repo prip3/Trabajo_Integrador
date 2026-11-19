@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo usuario - Reserva de Espacios</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="cabecera">
+        <h1>📅 Reserva de Espacios</h1>
+        <p>Escuela Experimental ProA</p>
+    </header>
+
+    <!-- Menú de navegación entre páginas -->
+    <nav class="menu" aria-label="Páginas de la aplicación">
+        <a href="index.html">Inicio</a>
+        <a href="crear_reservas.html">Nueva reserva</a>
+        <a href="ver_reservas.html">Ver reservas</a>
+        <a href="crear_espacios.html">Nuevo espacio</a>
+        <a href="ver_espacios.html">Ver espacios</a>
+        <a href="crear_usuarios.html" aria-current="page" class="activo">Nuevo usuario</a>
+        <a href="ver_usuarios.html">Ver usuarios</a>
+        <a href="ver_resumen.html">Resumen</a>
+    </nav>
+
+    <!-- Mensajes de éxito/error (los leen los lectores de pantalla) -->
+    <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+
+    <main>
+        <section class="vista">
+            <h2>Nuevo usuario</h2>
+            <form id="form-usuario" class="grid-form">
+                <div class="campo"><label for="usu-nombre">Nombre completo</label>
+                    <input type="text" id="usu-nombre" placeholder="Ej: Ana Pérez" required></div>
+                <div class="campo"><label for="usu-rol">Rol</label>
+                    <select id="usu-rol"></select></div>
+                <div class="campo"><label for="usu-detalle">Curso / Materia (opcional)</label>
+                    <input type="text" id="usu-detalle" placeholder="Ej: 4° año"></div>
+                <button type="submit">Agregar usuario</button>
+            </form>
+            <p><a href="ver_usuarios.html">Ver usuarios cargados →</a></p>
+        </section>
+    </main>
+
+    <footer>Programación IV · Escuela Experimental ProA</footer>
+
+    <!-- Primero las clases (modelos), después la interfaz que las usa -->
+    <script src="js/modelos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
